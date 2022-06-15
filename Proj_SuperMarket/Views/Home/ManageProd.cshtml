@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Proj_SuperMarket.Models.Product>
+
+@{
+    ViewBag.Title = "Product DashBoard";
+}
+<div class=" bg-info">
+
+
+    <h2>Product DashBoard</h2>
+
+    <p>
+        @Html.ActionLink("Add Products", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    <a href="~/Home/Details?id=@item.id" class=" btn btn-default bg bg-primary"> Go to Cart</a>
+                    <a href="~/Home/Payment" class=" btn btn-default  bg bg-success"> Buy</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+</div>

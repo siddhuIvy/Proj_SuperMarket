@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Proj_SuperMarket.Models.Supply>
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="bg-success">
+
+
+    <h2>Details</h2>
+
+    <p>
+        @Html.ActionLink("Add Details", "Createsup")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+</div>

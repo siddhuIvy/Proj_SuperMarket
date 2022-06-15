@@ -1,0 +1,68 @@
+﻿@model Proj_SuperMarket.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ManageEmp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        .div {
+            margin-left: 500px;
+            margin-top: 30px
+        }
+        .h3 {
+            margin-left: 500px;
+            margin-top: 30px;
+            color: red;
+        }
+    </style>
+</head>
+<body style="background-color:lightcyan">
+    <form action="ManageEmp" method="post">
+        <h3 class="h3"> Manage Employee</h3><hr />
+        <div class="div">
+            <label>Role:</label><br />
+            <input type="text" id="Role" name="Role" /><br /><br />
+            <label>Employee Name:</label><br />
+            <input type="text" id="EmployeeName" name="EmployeeName" /><br /><br />
+            <label>User Name:</label><br />
+            <input type="text" id="UserName" name="UserName" /><br /><br />
+            <label>Password:</label><br />
+            <input type="text" id="Password" name="Password" /><br /><br /><br />
+            <button type="submit" class="btn-success">ADD</button>
+            <button type="reset" class="btn-danger">RESET</button> <br />
+        </div>
+        <a href="~/Home/AdminDashboard" class="btn btn-danger">BACK</a>
+    </form>
+    @{ try
+        {
+            if (ViewBag.msg != null)
+            {
+                if (ViewBag.msg == "Inserted successfully")
+                {
+                    <script>
+                        swal("Successfully allocated", "You successfully allocated id & password to employee!", "success");
+                    </script>
+                }
+                else
+                {
+                    <script>
+                        swal("Failed to insert", "You clicked the button!", "error");
+                    </script>
+                }
+            }
+        }
+        catch
+        {
+
+        }
+    }
+</body>
+</html>
